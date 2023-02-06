@@ -8,5 +8,5 @@
 import Foundation
 
 enum EndPoints {
-    static let TMDBUrl = "https://api.themoviedb.org/3/"
+    static let TMDBUrl = "https://api.themoviedb.org/3/trending/"
 }
