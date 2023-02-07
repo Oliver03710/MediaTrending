@@ -10,3 +10,7 @@ import Foundation
 enum EndPoints {
     static let TMDBUrl = "https://api.themoviedb.org/3/trending/"
 }
+
+enum URLs: String {
+    case movie, tv
+}
