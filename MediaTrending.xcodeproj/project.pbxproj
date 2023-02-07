@@ -18,10 +18,13 @@
 		AD485E2B29910C8A009178C7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AD485E2A29910C8A009178C7 /* Alamofire */; };
 		AD485E312991101E009178C7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AD485E302991101E009178C7 /* .gitignore */; };
 		AD485E352991105C009178C7 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485E342991105B009178C7 /* APIKeys.swift */; };
-		AD485E3D299114FA009178C7 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485E3C299114FA009178C7 /* Movies.swift */; };
+		AD485E3D299114FA009178C7 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485E3C299114FA009178C7 /* Movie.swift */; };
 		AD485E4329911B1A009178C7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485E4229911B1A009178C7 /* MainViewModel.swift */; };
 		AD485E4929911D33009178C7 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485E4829911D33009178C7 /* EndPoints.swift */; };
 		AD485E4C29912031009178C7 /* RawValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485E4B29912031009178C7 /* RawValues.swift */; };
+		ADF9DDD0299234EA00ECE211 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9DDCF299234EA00ECE211 /* MediaView.swift */; };
+		ADF9DDD5299252A300ECE211 /* Casts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9DDD4299252A300ECE211 /* Casts.swift */; };
+		ADF9DDD729925E3700ECE211 /* Crews.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9DDD629925E3700ECE211 /* Crews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,10 +59,13 @@
 		AD485E24299103A1009178C7 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AD485E302991101E009178C7 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		AD485E342991105B009178C7 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
-		AD485E3C299114FA009178C7 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
+		AD485E3C299114FA009178C7 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		AD485E4229911B1A009178C7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AD485E4829911D33009178C7 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		AD485E4B29912031009178C7 /* RawValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawValues.swift; sourceTree = "<group>"; };
+		ADF9DDCF299234EA00ECE211 /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
+		ADF9DDD4299252A300ECE211 /* Casts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Casts.swift; sourceTree = "<group>"; };
+		ADF9DDD629925E3700ECE211 /* Crews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				AD485DF72990FD25009178C7 /* MainView.swift */,
+				ADF9DDCF299234EA00ECE211 /* MediaView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -227,7 +234,9 @@
 		AD485E3B299114E0009178C7 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
-				AD485E3C299114FA009178C7 /* Movies.swift */,
+				AD485E3C299114FA009178C7 /* Movie.swift */,
+				ADF9DDD4299252A300ECE211 /* Casts.swift */,
+				ADF9DDD629925E3700ECE211 /* Crews.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -387,11 +396,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD485E4329911B1A009178C7 /* MainViewModel.swift in Sources */,
+				ADF9DDD5299252A300ECE211 /* Casts.swift in Sources */,
 				AD485E352991105C009178C7 /* APIKeys.swift in Sources */,
 				AD485E4929911D33009178C7 /* EndPoints.swift in Sources */,
 				AD485E4C29912031009178C7 /* RawValues.swift in Sources */,
 				AD485DF82990FD25009178C7 /* MainView.swift in Sources */,
-				AD485E3D299114FA009178C7 /* Movies.swift in Sources */,
+				ADF9DDD0299234EA00ECE211 /* MediaView.swift in Sources */,
+				AD485E3D299114FA009178C7 /* Movie.swift in Sources */,
+				ADF9DDD729925E3700ECE211 /* Crews.swift in Sources */,
 				AD485DF62990FD25009178C7 /* MediaTrendingApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
