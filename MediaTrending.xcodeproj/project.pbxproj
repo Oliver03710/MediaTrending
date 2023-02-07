@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD485DF62990FD25009178C7 /* MediaTrendingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485DF52990FD25009178C7 /* MediaTrendingApp.swift */; };
-		AD485DF82990FD25009178C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485DF72990FD25009178C7 /* ContentView.swift */; };
+		AD485DF82990FD25009178C7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485DF72990FD25009178C7 /* MainView.swift */; };
 		AD485DFA2990FD26009178C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD485DF92990FD26009178C7 /* Assets.xcassets */; };
 		AD485DFD2990FD26009178C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD485DFC2990FD26009178C7 /* Preview Assets.xcassets */; };
 		AD485E072990FD26009178C7 /* MediaTrendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485E062990FD26009178C7 /* MediaTrendingTests.swift */; };
@@ -18,6 +18,10 @@
 		AD485E2B29910C8A009178C7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AD485E2A29910C8A009178C7 /* Alamofire */; };
 		AD485E312991101E009178C7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AD485E302991101E009178C7 /* .gitignore */; };
 		AD485E352991105C009178C7 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485E342991105B009178C7 /* APIKeys.swift */; };
+		AD485E3D299114FA009178C7 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485E3C299114FA009178C7 /* Movies.swift */; };
+		AD485E4329911B1A009178C7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485E4229911B1A009178C7 /* MainViewModel.swift */; };
+		AD485E4929911D33009178C7 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485E4829911D33009178C7 /* EndPoints.swift */; };
+		AD485E4C29912031009178C7 /* RawValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485E4B29912031009178C7 /* RawValues.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +44,7 @@
 /* Begin PBXFileReference section */
 		AD485DF22990FD25009178C7 /* MediaTrending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaTrending.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD485DF52990FD25009178C7 /* MediaTrendingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTrendingApp.swift; sourceTree = "<group>"; };
-		AD485DF72990FD25009178C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AD485DF72990FD25009178C7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		AD485DF92990FD26009178C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD485DFC2990FD26009178C7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AD485E022990FD26009178C7 /* MediaTrendingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediaTrendingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +56,10 @@
 		AD485E24299103A1009178C7 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AD485E302991101E009178C7 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		AD485E342991105B009178C7 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		AD485E3C299114FA009178C7 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
+		AD485E4229911B1A009178C7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		AD485E4829911D33009178C7 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		AD485E4B29912031009178C7 /* RawValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawValues.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				AD485DF52990FD25009178C7 /* MediaTrendingApp.swift */,
-				AD485DF72990FD25009178C7 /* ContentView.swift */,
 				AD485E322991103D009178C7 /* Resources */,
 				AD485E2829910C53009178C7 /* Utilities */,
+				AD485E3629911422009178C7 /* Scenes */,
 				AD485E2329910383009178C7 /* Localizable.strings */,
 				AD485DF92990FD26009178C7 /* Assets.xcassets */,
 				AD485DFB2990FD26009178C7 /* Preview Content */,
@@ -143,7 +151,8 @@
 		AD485E2829910C53009178C7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				AD485E2F29910D25009178C7 /* Managers */,
+				AD485E4A29911F7B009178C7 /* Components */,
+				AD485E3A299114CD009178C7 /* Networking */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -158,7 +167,7 @@
 		AD485E322991103D009178C7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AD485E332991104A009178C7 /* APIKeys */,
+				AD485E4B29912031009178C7 /* RawValues.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -169,6 +178,73 @@
 				AD485E342991105B009178C7 /* APIKeys.swift */,
 			);
 			path = APIKeys;
+			sourceTree = "<group>";
+		};
+		AD485E3629911422009178C7 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				AD485E372991144C009178C7 /* Main */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		AD485E372991144C009178C7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AD485E382991145B009178C7 /* Views */,
+				AD485E3929911499009178C7 /* ViewModels */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		AD485E382991145B009178C7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD485DF72990FD25009178C7 /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AD485E3929911499009178C7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AD485E4229911B1A009178C7 /* MainViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AD485E3A299114CD009178C7 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				AD485E4729911D1F009178C7 /* EndPoints */,
+				AD485E332991104A009178C7 /* APIKeys */,
+				AD485E3B299114E0009178C7 /* DTOs */,
+				AD485E2F29910D25009178C7 /* Managers */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		AD485E3B299114E0009178C7 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				AD485E3C299114FA009178C7 /* Movies.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		AD485E4729911D1F009178C7 /* EndPoints */ = {
+			isa = PBXGroup;
+			children = (
+				AD485E4829911D33009178C7 /* EndPoints.swift */,
+			);
+			path = EndPoints;
+			sourceTree = "<group>";
+		};
+		AD485E4A29911F7B009178C7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,8 +386,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD485E4329911B1A009178C7 /* MainViewModel.swift in Sources */,
 				AD485E352991105C009178C7 /* APIKeys.swift in Sources */,
-				AD485DF82990FD25009178C7 /* ContentView.swift in Sources */,
+				AD485E4929911D33009178C7 /* EndPoints.swift in Sources */,
+				AD485E4C29912031009178C7 /* RawValues.swift in Sources */,
+				AD485DF82990FD25009178C7 /* MainView.swift in Sources */,
+				AD485E3D299114FA009178C7 /* Movies.swift in Sources */,
 				AD485DF62990FD25009178C7 /* MediaTrendingApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
