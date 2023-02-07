@@ -10,19 +10,18 @@ import SwiftUI
 struct MainView: View {
     
     private let intro: LocalizedStringKey = "intro"
-    private let items = [GridItem(.flexible())]
     
     @ObservedObject var viewModel = MainViewModel()
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: items) {
-                ForEach(0..<10, id: \.self) { i in
-                    
-                    Text("\(i)")
+            LazyVStack {
+                ForEach(viewModel.movies) { movie in
+                    if let casting = viewModel.casts[movie.id] {
+                        MediaView(movie: movie, casts: casting)
+                    }
                 }
                 .padding()
-                .background(Color.yellow)
             }
         }
     }
