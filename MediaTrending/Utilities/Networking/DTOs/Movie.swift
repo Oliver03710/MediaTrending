@@ -7,19 +7,16 @@
 
 import Foundation
 
-struct Movies: Codable {
-    let page: Int
-    let results: [Result]
-    let totalPages, totalResults: Int
+struct MovieResponse: Codable {
+    let results: [Movie]
 
     enum CodingKeys: String, CodingKey {
-        case page, results
-        case totalPages = "total_pages"
-        case totalResults = "total_results"
+        case results
     }
 }
 
-struct Result: Codable {
+struct Movie: Codable, Identifiable {
+    var uuid = UUID()
     let adult: Bool
     let id: Int
     let name, overview, firstAirDate, posterPath, backdropPath: String
@@ -35,5 +32,9 @@ struct Result: Codable {
         case genreIDS = "genre_ids"
         case firstAirDate = "first_air_date"
         case voteAverage = "vote_average"
+    }
+    
+    static func getDummy() -> Self {
+        return Movie(adult: false, id: 1, name: "Dummy", overview: "Overview", firstAirDate: "2023-01-15", posterPath: "/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg", backdropPath: "/uDgy6hyPd82kOHh6I95FLtLnj6p.jpg", genreIDS: [18, 10759], voteAverage: 8.836)
     }
 }
