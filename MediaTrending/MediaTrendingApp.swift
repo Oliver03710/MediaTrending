@@ -11,7 +11,7 @@ import SwiftUI
 struct MediaTrendingApp: App {
     var body: some Scene {
         WindowGroup {
-            MediaView()
+            MainView()
         }
     }
 }

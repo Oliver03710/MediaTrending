@@ -1,5 +1,5 @@
 //
-//  MediaView.swift
+//  MainView.swift
 //  MediaTrending
 //
 //  Created by Junhee Yoon on 2023/02/06.
@@ -7,16 +7,18 @@
 
 import SwiftUI
 
-struct MediaView: View {
+struct MainView: View {
     
     private let intro: LocalizedStringKey = "intro"
     private let items = [GridItem(.flexible())]
+    
+    @ObservedObject var viewModel = MainViewModel()
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: items) {
                 ForEach(0..<10, id: \.self) { i in
-                    Text(intro)
+                    
                     Text("\(i)")
                 }
                 .padding()
@@ -28,7 +30,7 @@ struct MediaView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MediaView()
+        MainView()
             .environment(\.locale, .init(identifier: "ko"))
     }
 }
