@@ -76,6 +76,34 @@ struct MediaView: View {
                     .lineLimit(1)
                     .padding(3)
                     .foregroundColor(Color.gray)
+                
+                Spacer()
+                    .frame(height: 12)
+                
+                Divider()
+                    .frame(width: 280, height: 1.2, alignment: .center)
+                    .background(Color.black)
+                
+                Spacer()
+                    .frame(height: 4)
+                
+                HStack(spacing: 0) {
+                    Spacer()
+                        .frame(width: 10)
+                    
+                    Text("자세히 보기")
+                        .foregroundColor(Color.init(uiColor: .darkGray))
+                        .font(.system(size: 13, weight: .medium))
+                        .lineLimit(1)
+                        .padding(3)
+                    
+                    Spacer()
+                    
+                    Image(systemName: "chevron.forward")
+                    
+                    Spacer()
+                        .frame(width: 10)
+                }
             }
             .frame(width: 300, height: 100)
             .background(Color.white)
