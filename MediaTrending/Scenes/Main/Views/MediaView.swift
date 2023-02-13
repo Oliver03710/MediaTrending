@@ -14,16 +14,54 @@ struct MediaView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            AsyncImage(url: URL(string: EndPoints.imageUrl + "\(movie.posterPath)")) { phase in
-                if let image = phase.image {
-                    image
-                        .resizable()
-                        .aspectRatio(1, contentMode: .fill)
-                        .frame(width: 300, height: 300, alignment: .center)
-                        .clipped()
-                } else {
-                    Image(systemName: "star.fill")
-                        .frame(width: 300, height: 300)
+            ZStack(alignment: .topTrailing) {
+                ZStack(alignment: .bottomLeading) {
+                    AsyncImage(url: URL(string: EndPoints.imageUrl + "\(movie.posterPath)")) { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                                .aspectRatio(1, contentMode: .fill)
+                                .frame(width: 300, height: 300, alignment: .center)
+                                .clipped()
+                        } else {
+                            Image(systemName: "star.fill")
+                                .frame(width: 300, height: 300)
+                        }
+                    }
+                    
+                    HStack(spacing: 0) {
+                        VStack {
+                            Text("평점")
+                                .font(.system(size: 13, weight: .regular))
+                                .lineLimit(1)
+                                .padding(3)
+                        }
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .background(Color.yellow)
+                        
+                        VStack {
+                            Text("\(String(format: "%.1f", movie.voteAverage))")
+                                .font(.system(size: 13, weight: .regular))
+                                .lineLimit(1)
+                                .padding(3)
+                        }
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        
+                    }
+                    .frame(width: 70, height: .infinity, alignment: .center)
+                    .background(Color.white)
+                    .padding(8)
+                }
+                
+                Button(action: {
+                    print("Round Action")
+                }) {
+                    Image(systemName: "link")
+                        .frame(width: 32, height: 32)
+                        .foregroundColor(Color.black)
+                        .background(Color.white)
+                        .clipShape(Circle())
+                        .offset(x: -12, y: 12)
                 }
             }
             
