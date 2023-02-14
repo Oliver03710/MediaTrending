@@ -8,13 +8,44 @@
 import SwiftUI
 
 struct DetailCellView: View {
+    
+    var imagePath: String?
+    var name: String
+    var position: String?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            AsyncImage(url: URL(string: EndPoints.imageUrl + "\(imagePath ?? "")")) { phase in
+                if let image = phase.image {
+                    image
+                        .resizable()
+                        .aspectRatio(0.8, contentMode: .fit)
+                        .frame(width: 70, height: 120, alignment: .center)
+                        .clipped()
+                    
+                } else {
+                    Image(systemName: "star.fill")
+                        .frame(width: 100, height: 150)
+                }
+            }
+
+            VStack {
+                Text(name)
+                
+                Spacer()
+                    .frame(height: 6)
+                
+                Text(position ?? "")
+                    .foregroundColor(Color.gray)
+            }
+        }
     }
 }
 
 struct DetailCellView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailCellView()
+        DetailCellView(imagePath: Cast.getDummy()[0].profilePath,
+                       name: Cast.getDummy()[0].name,
+                       position: Cast.getDummy()[0].character)
     }
 }
