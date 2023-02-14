@@ -8,7 +8,7 @@
 import Foundation
 
 struct CrewResponse: Codable {
-    let cast: [Cast]
+    let cast: [Crew]
 }
 
 struct Crew: Codable, Identifiable {
@@ -24,7 +24,11 @@ struct Crew: Codable, Identifiable {
         case profilePath = "profile_path"
     }
     
-    static func getDummy() -> Self {
-        return Crew(id: 1, knownForDepartment: "Writing", name: "Craig Mazin", profilePath: "/uEhna6qcMuyU5TP7irpTUZ2ZsZc.jpg")
+    static func getDummy() -> [Self] {
+        return [Crew(id: 1, knownForDepartment: "Writing", name: "Craig Mazin", profilePath: "/uEhna6qcMuyU5TP7irpTUZ2ZsZc.jpg"),
+                Crew(id: 1, knownForDepartment: "Writing", name: "Craig Mazin", profilePath: "/uEhna6qcMuyU5TP7irpTUZ2ZsZc.jpg"),
+                Crew(id: 1, knownForDepartment: "Writing", name: "Craig Mazin", profilePath: "/uEhna6qcMuyU5TP7irpTUZ2ZsZc.jpg"),
+                Crew(id: 1, knownForDepartment: "Writing", name: "Craig Mazin", profilePath: "/uEhna6qcMuyU5TP7irpTUZ2ZsZc.jpg"),
+                Crew(id: 1, knownForDepartment: "Writing", name: "Craig Mazin", profilePath: "/uEhna6qcMuyU5TP7irpTUZ2ZsZc.jpg")]
     }
 }
