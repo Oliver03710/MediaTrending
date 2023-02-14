@@ -11,7 +11,7 @@ struct CrewResponse: Codable {
     let cast: [Crew]
 }
 
-struct Crew: Codable, Identifiable {
+struct Crew: Codable, Identifiable, Hashable {
     var uuid = UUID()
     let id: Int
     let knownForDepartment, name: String

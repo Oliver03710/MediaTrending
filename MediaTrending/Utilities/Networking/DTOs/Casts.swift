@@ -11,7 +11,7 @@ struct CastResponse: Codable {
     let cast: [Cast]
 }
 
-struct Cast: Codable, Identifiable {
+struct Cast: Codable, Identifiable, Hashable {
     let id: Int
     let name: String
     let profilePath: String?
