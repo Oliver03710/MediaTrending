@@ -12,7 +12,15 @@ final class DetailViewModel: ObservableObject {
     
     var subscription = Set<AnyCancellable>()
     
-    init() {
-        
+    @Published var mediaID: Int
+    @Published var media: MediaType
+    @Published var casts = [Cast]()
+    @Published var crews = [Crew]()
+    
+    init(_ id: Int, media: MediaType, casts: [Cast], crews: [Crew]) {
+        mediaID = id
+        self.media = media
+        self.casts = casts
+        self.crews = crews
     }
 }
