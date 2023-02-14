@@ -67,18 +67,18 @@ struct MediaView: View {
             
             VStack(spacing: 0) {
                 Text(movie.name)
-                    .font(.system(size: 20, weight: .semibold))
+                    .font(.system(size: 16, weight: .semibold))
                     .lineLimit(1)
                     .padding(3)
                 
                 Text(casts.map({ $0.name }).joined(separator: ", "))
-                    .font(.system(size: 16))
+                    .font(.system(size: 14))
                     .lineLimit(1)
                     .padding(3)
                     .foregroundColor(Color.gray)
                 
                 Spacer()
-                    .frame(height: 12)
+                    .frame(height: 8)
                 
                 Divider()
                     .frame(width: 280, height: 1.2, alignment: .center)
