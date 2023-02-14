@@ -22,16 +22,26 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVStack {
-                    ForEach(viewModel.movies) { movie in
-                        if let casting = viewModel.casts[movie.id] {
-                            MediaView(movie: movie, casts: casting)
+                    LazyVStack {
+                        if chosen == 0 {
+                            ForEach(viewModel.tvs) { media in
+                                if let casting = viewModel.casts[media.id] {
+                                    MediaView(media: media, casts: casting)
+                                }
+                            }
+                            .padding()
+                        } else {
+                            
+                            ForEach(viewModel.movies) { media in
+                                if let casting = viewModel.casts[media.id] {
+                                    MediaView(media: media, casts: casting)
+                                }
+                            }
+                            .padding()
                         }
                     }
-                    .padding()
-                }
             }
-            .navigationTitle("Daily Trend")
+            .navigationTitle(chosen == 0 ? "Daily TV Trends" : "Daily Movie Trends")
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Picker("", selection: $chosen) {
