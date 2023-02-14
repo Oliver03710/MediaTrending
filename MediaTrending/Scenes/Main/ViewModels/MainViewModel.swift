@@ -15,36 +15,64 @@ final class MainViewModel: ObservableObject {
     var subscription = Set<AnyCancellable>()
     
     @Published var movies = [Movie]()
+    @Published var tvs = [TV]()
     @Published var casts = [Int: [Cast]]()
     
-    private let mediaUrl = EndPoints.mainUrl + "trending/" + URLs.tv.rawValue + Raws.Networking.Period.day + "api_key=" + APIKey.TMDB.rawValue + "&page=\(1)"
+    private let tvUrl = EndPoints.mainUrl + "trending/" + URLs.tv.rawValue + Raws.Networking.Period.day + "api_key=" + APIKey.TMDB.rawValue + "&page=\(1)"
+    private let movieUrl = EndPoints.mainUrl + "trending/" + URLs.movie.rawValue + Raws.Networking.Period.day + "api_key=" + APIKey.TMDB.rawValue + "&page=\(1)"
     
     init() {
-        fetchMovies()
+        fetchMedias(.tv)
+        fetchMedias(.movie)
     }
     
-    func fetchMovies() {
-        AF.request(mediaUrl)
-            .publishDecodable(type: MovieResponse.self)
-            .compactMap { $0.value }
-            .map { $0.results }
-            .sink(receiveCompletion: { completion in
-                print("Networking Completed‼️")
-                
-            }, receiveValue: { [weak self] receivedValue in
-                print("받은 값: \(receivedValue.count)")
-                receivedValue
-                    .forEach { movie in
-                        self?.movies.append(movie)
-                        self?.fetchCrews(id: movie.id)
-                    }
-                
-            })
-            .store(in: &subscription)
+    func fetchMedias(_ media: Medias) {
+        print(tvUrl)
+        print(movieUrl)
+        switch media {
+        case .tv:
+            AF.request(tvUrl)
+                .publishDecodable(type: TVResponse.self)
+                .compactMap { $0.value }
+                .map { $0.results }
+                .sink(receiveCompletion: { completion in
+                    print("Networking Completed‼️")
+                    
+                }, receiveValue: { [weak self] receivedValue in
+//                    print("받은 값: \(receivedValue.count)")
+                    receivedValue
+                        .forEach { media in
+                            self?.tvs.append(media)
+                            self?.fetchCrews(id: media.id, media: .tv)
+                        }
+                    
+                })
+                .store(in: &subscription)
+            
+        case .movie:
+            AF.request(movieUrl)
+                .publishDecodable(type: MovieResponse.self)
+                .compactMap { $0.value }
+                .map { $0.results }
+                .sink(receiveCompletion: { completion in
+                    print("Networking Completed‼️")
+                    
+                }, receiveValue: { [weak self] receivedValue in
+//                    print("받은 값: \(receivedValue.count)")
+                    receivedValue
+                        .forEach { media in
+                            self?.movies.append(media)
+                            self?.fetchCrews(id: media.id, media: .movie)
+                        }
+                    
+                })
+                .store(in: &subscription)
+        }
+        
     }
     
-    func fetchCrews(id: Int) {
-        let crewUrl = EndPoints.mainUrl + URLs.tv.rawValue + "/\(id)/credits?api_key=\(APIKey.TMDB.rawValue)&language=en-US"
+    func fetchCrews(id: Int, media: URLs) {
+        let crewUrl = EndPoints.mainUrl + media.rawValue + "/\(id)/credits?api_key=\(APIKey.TMDB.rawValue)&language=en-US"
         
         AF.request(crewUrl)
             .publishDecodable(type: CastResponse.self)
