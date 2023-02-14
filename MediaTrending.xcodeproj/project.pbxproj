@@ -23,6 +23,8 @@
 		AD485E4929911D33009178C7 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485E4829911D33009178C7 /* EndPoints.swift */; };
 		AD485E4C29912031009178C7 /* RawValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD485E4B29912031009178C7 /* RawValues.swift */; };
 		ADF03785299B78260016DA37 /* TV.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF03784299B78260016DA37 /* TV.swift */; };
+		ADF0378A299B8E1C0016DA37 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF03789299B8E1C0016DA37 /* DetailView.swift */; };
+		ADF0378D299B8E4F0016DA37 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF0378C299B8E4F0016DA37 /* DetailViewModel.swift */; };
 		ADF9DDD0299234EA00ECE211 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9DDCF299234EA00ECE211 /* MediaView.swift */; };
 		ADF9DDD5299252A300ECE211 /* Casts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9DDD4299252A300ECE211 /* Casts.swift */; };
 		ADF9DDD729925E3700ECE211 /* Crews.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF9DDD629925E3700ECE211 /* Crews.swift */; };
@@ -65,6 +67,8 @@
 		AD485E4829911D33009178C7 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		AD485E4B29912031009178C7 /* RawValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawValues.swift; sourceTree = "<group>"; };
 		ADF03784299B78260016DA37 /* TV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV.swift; sourceTree = "<group>"; };
+		ADF03789299B8E1C0016DA37 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		ADF0378C299B8E4F0016DA37 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		ADF9DDCF299234EA00ECE211 /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
 		ADF9DDD4299252A300ECE211 /* Casts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Casts.swift; sourceTree = "<group>"; };
 		ADF9DDD629925E3700ECE211 /* Crews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crews.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				AD485E372991144C009178C7 /* Main */,
+				ADF03786299B8DF20016DA37 /* Detail */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -257,6 +262,31 @@
 			children = (
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		ADF03786299B8DF20016DA37 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				ADF03788299B8E0B0016DA37 /* Views */,
+				ADF03787299B8E040016DA37 /* ViewModels */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		ADF03787299B8E040016DA37 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ADF0378C299B8E4F0016DA37 /* DetailViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADF03788299B8E0B0016DA37 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ADF03789299B8E1C0016DA37 /* DetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD485E4329911B1A009178C7 /* MainViewModel.swift in Sources */,
+				ADF0378A299B8E1C0016DA37 /* DetailView.swift in Sources */,
 				ADF9DDD5299252A300ECE211 /* Casts.swift in Sources */,
 				AD485E352991105C009178C7 /* APIKeys.swift in Sources */,
 				AD485E4929911D33009178C7 /* EndPoints.swift in Sources */,
@@ -406,6 +437,7 @@
 				AD485E4C29912031009178C7 /* RawValues.swift in Sources */,
 				AD485DF82990FD25009178C7 /* MainView.swift in Sources */,
 				ADF9DDD0299234EA00ECE211 /* MediaView.swift in Sources */,
+				ADF0378D299B8E4F0016DA37 /* DetailViewModel.swift in Sources */,
 				AD485E3D299114FA009178C7 /* Movie.swift in Sources */,
 				ADF9DDD729925E3700ECE211 /* Crews.swift in Sources */,
 				AD485DF62990FD25009178C7 /* MediaTrendingApp.swift in Sources */,
