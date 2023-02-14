@@ -48,7 +48,7 @@ struct MediaView: View {
                         .frame(minWidth: 0, maxWidth: .infinity)
                         
                     }
-                    .frame(width: 70, height: .infinity, alignment: .center)
+                    .frame(width: 70, height: .none, alignment: .center)
                     .background(Color.white)
                     .padding(8)
                 }
