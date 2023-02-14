@@ -40,7 +40,7 @@ struct DetailView: View {
             }
             .textCase(nil)
         }
-        
+        .listStyle(.plain)
     }
 }
 
