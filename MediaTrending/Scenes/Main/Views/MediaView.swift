@@ -9,14 +9,14 @@ import SwiftUI
 
 struct MediaView: View {
     
-    var movie: Movie
+    var media: MediaType
     var casts: [Cast]
     
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .topTrailing) {
                 ZStack(alignment: .bottomLeading) {
-                    AsyncImage(url: URL(string: EndPoints.imageUrl + "\(movie.posterPath)")) { phase in
+                    AsyncImage(url: URL(string: EndPoints.imageUrl + "\(media.posterPath)")) { phase in
                         if let image = phase.image {
                             image
                                 .resizable()
@@ -40,7 +40,7 @@ struct MediaView: View {
                         .background(Color.yellow)
                         
                         VStack {
-                            Text("\(String(format: "%.1f", movie.voteAverage))")
+                            Text("\(String(format: "%.1f", media.voteAverage))")
                                 .font(.system(size: 13, weight: .regular))
                                 .lineLimit(1)
                                 .padding(3)
@@ -66,7 +66,7 @@ struct MediaView: View {
             }
             
             VStack(spacing: 0) {
-                Text(movie.name)
+                Text(media.title)
                     .font(.system(size: 16, weight: .semibold))
                     .lineLimit(1)
                     .padding(3)
@@ -116,6 +116,6 @@ struct MediaView: View {
 
 struct MediaView_Previews: PreviewProvider {
     static var previews: some View {
-        MediaView(movie: Movie.getDummy(), casts: Cast.getDummy())
+        MediaView(media: Movie.getDummy(), casts: Cast.getDummy())
     }
 }
