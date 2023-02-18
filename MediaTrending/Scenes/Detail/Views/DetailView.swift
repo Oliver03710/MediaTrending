@@ -12,35 +12,43 @@ struct DetailView: View {
     @ObservedObject var viewModel: DetailViewModel
     
     var body: some View {
-        List {
-            Section(header: Text("Overview")) {
-                Text("\(viewModel.media.overview)")
-            }
-            .textCase(nil)
-            
-            Section(header: Text("Casts")) {
-                ForEach(viewModel.casts, id: \.self) { item in
-                    LazyVStack(alignment: .leading) {
-                        DetailCellView(imagePath: item.profilePath,
-                                       name: item.name,
-                                       position: item.character)
+        GeometryReader { geometry in
+            List {
+                Section() {
+                    StretchableHeaderView(imagePath: "\(EndPoints.imageUrl)/\(viewModel.media.backdropPath)")
+                }
+                .listRowInsets(EdgeInsets())
+                
+                Section(header: Text("Overview")) {
+                    Text("\(viewModel.media.overview)")
+                }
+                .textCase(nil)
+                
+                Section(header: Text("Casts")) {
+                    ForEach(viewModel.casts, id: \.self) { item in
+                        LazyVStack(alignment: .leading) {
+                            DetailCellView(imagePath: item.profilePath,
+                                           name: item.name,
+                                           position: item.character)
+                        }
                     }
                 }
-            }
-            .textCase(nil)
-            
-            Section(header: Text("Crews")) {
-                ForEach(viewModel.crews, id: \.self) { item in
-                    LazyVStack(alignment: .leading) {
-                        DetailCellView(imagePath: item.profilePath,
-                                       name: item.name,
-                                       position: item.knownForDepartment)
+                .textCase(nil)
+                
+                Section(header: Text("Crews")) {
+                    ForEach(viewModel.crews, id: \.self) { item in
+                        LazyVStack(alignment: .leading) {
+                            DetailCellView(imagePath: item.profilePath,
+                                           name: item.name,
+                                           position: item.knownForDepartment)
+                        }
                     }
                 }
+                .textCase(nil)
             }
-            .textCase(nil)
+            .frame(width: geometry.size.width, height: geometry.size.height)
+            .listStyle(.plain)
         }
-        .listStyle(.plain)
     }
 }
 
