@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DetailView: View {
     
+    @State var clicked = false
+    @State var overviewHeight: CGFloat = 50
     @ObservedObject var viewModel: DetailViewModel
     
     var body: some View {
@@ -20,7 +22,20 @@ struct DetailView: View {
                 .listRowInsets(EdgeInsets())
                 
                 Section(header: Text("Overview")) {
-                    Text("\(viewModel.media.overview)")
+                    VStack {
+                        Text("\(viewModel.media.overview)")
+                            .frame(height: clicked ? .infinity : 50)
+                        
+                        Button(action: {
+                            clicked = clicked ? false : true
+                        }) {
+                            VStack {
+                                Image(systemName: clicked ? "chevron.up" : "chevron.down")
+                            }
+                            .frame(width: 100, height: 40)
+                            .foregroundColor(.black)
+                        }
+                    }
                 }
                 .textCase(nil)
                 
