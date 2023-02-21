@@ -8,19 +8,36 @@
 import Foundation
 import Combine
 
+import Alamofire
+
 final class DetailViewModel: ObservableObject {
     
     var subscription = Set<AnyCancellable>()
     
-    @Published var mediaID: Int
     @Published var media: MediaType
     @Published var casts = [Cast]()
     @Published var crews = [Crew]()
     
-    init(_ id: Int, media: MediaType, casts: [Cast], crews: [Crew]) {
-        mediaID = id
+    init(_ media: MediaType, casts: [Cast], kind: URLs) {
         self.media = media
         self.casts = casts
-        self.crews = crews
+        fetchCrews(id: media.id, media: kind)
+    }
+    
+    func fetchCrews(id: Int, media: URLs) {
+        let crewUrl = EndPoints.mainUrl + media.rawValue + "/\(id)/credits?api_key=\(APIKey.TMDB.rawValue)&language=en-US"
+        
+        AF.request(crewUrl)
+            .publishDecodable(type: CrewResponse.self)
+            .compactMap { $0.value }
+            .map { $0.crew }
+            .sink { completion in
+                print("Networking Crew Completed‼️")
+                
+            } receiveValue: { receivedValue in
+                print("받은 값: \(receivedValue)")
+                self.crews.append(contentsOf: receivedValue)
+            }
+            .store(in: &subscription)
     }
 }
