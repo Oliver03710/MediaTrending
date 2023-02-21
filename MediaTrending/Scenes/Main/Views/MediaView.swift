@@ -11,6 +11,11 @@ struct MediaView: View {
     
     var media: MediaType
     var casts: [Cast]
+    var kind: URLs
+    
+    @ObservedObject var viewModel: MediaViewModel
+    
+    @State var isOnWebView: Bool = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -54,7 +59,8 @@ struct MediaView: View {
                 }
                 
                 Button(action: {
-                    print("Round Action")
+                    viewModel.fetchTrailerData(media.id, kind: kind)
+                    isOnWebView = true
                 }) {
                     Image(systemName: "link")
                         .frame(width: 32, height: 32)
@@ -62,6 +68,9 @@ struct MediaView: View {
                         .background(Color.white)
                         .clipShape(Circle())
                         .offset(x: -12, y: 12)
+                }
+                .sheet(isPresented: $isOnWebView) {
+                    WebView(request: URLRequest(url: URL(string: EndPoints.trailerUrl + viewModel.trailersUrl)!))
                 }
             }
             
@@ -116,6 +125,6 @@ struct MediaView: View {
 
 struct MediaView_Previews: PreviewProvider {
     static var previews: some View {
-        MediaView(media: Movie.getDummy(), casts: Cast.getDummy())
+        MediaView(media: Movie.getDummy(), casts: Cast.getDummy(), kind: .tv, viewModel: MediaViewModel())
     }
 }
