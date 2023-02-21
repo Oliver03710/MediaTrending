@@ -10,6 +10,7 @@ import Foundation
 enum EndPoints {
     static let mainUrl = "https://api.themoviedb.org/3/"
     static let imageUrl = "https://image.tmdb.org/t/p/original/"
+    static let trailerUrl = "https://www.youtube.com/watch?v="
 }
 
 enum URLs: String {
