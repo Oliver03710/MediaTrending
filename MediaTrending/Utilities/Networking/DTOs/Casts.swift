@@ -25,7 +25,7 @@ struct Cast: Codable, Identifiable, Hashable {
     }
     
     static func getDummy() -> [Self] {
-        return [Cast(id: 1, name: "Dummy1", profilePath: "/hoP3vT6OBMNCUFTqlTDcd2X3y77.jpg", character: "Joel Miller"),
+        return [Cast(id: 1, name: "Dummys 1231231", profilePath: "/hoP3vT6OBMNCUFTqlTDcd2X3y77.jpg", character: "Joel Miller"),
                 Cast(id: 2, name: "Dummy2", profilePath: "/hoP3vT6OBMNCUFTqlTDcd2X3y77.jpg", character: "Joel Miller"),
                 Cast(id: 3, name: "Dummy3", profilePath: "/hoP3vT6OBMNCUFTqlTDcd2X3y77.jpg", character: "Joel Miller"),
                 Cast(id: 4, name: "Dummy4", profilePath: "/hoP3vT6OBMNCUFTqlTDcd2X3y77.jpg", character: "Joel Miller")]
