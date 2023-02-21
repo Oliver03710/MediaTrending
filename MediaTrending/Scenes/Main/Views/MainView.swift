@@ -26,7 +26,10 @@ struct MainView: View {
                         if chosen == 0 {
                             ForEach(viewModel.tvs) { media in
                                 if let casting = viewModel.casts[media.id] {
-                                    MediaView(media: media, casts: casting)
+                                    NavigationLink(destination: DetailView(viewModel: DetailViewModel(media, casts: casting, kind: .tv))) {
+                                        MediaView(media: media, casts: casting)
+                                            .foregroundColor(.black)
+                                    }
                                 }
                             }
                             .padding()
@@ -34,7 +37,10 @@ struct MainView: View {
                             
                             ForEach(viewModel.movies) { media in
                                 if let casting = viewModel.casts[media.id] {
-                                    MediaView(media: media, casts: casting)
+                                    NavigationLink(destination: DetailView(viewModel: DetailViewModel(media, casts: casting, kind: .movie))) {
+                                        MediaView(media: media, casts: casting)
+                                            .foregroundColor(.black)
+                                    }
                                 }
                             }
                             .padding()
