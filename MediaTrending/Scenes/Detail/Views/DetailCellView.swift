@@ -25,18 +25,20 @@ struct DetailCellView: View {
                     
                 } else {
                     Image(systemName: "star.fill")
-                        .frame(width: 100, height: 150)
+                        .frame(width: 70, height: 120)
                 }
             }
 
-            VStack {
+            VStack(alignment: .leading) {
                 Text(name)
                 
                 Spacer()
                     .frame(height: 6)
                 
-                Text(position ?? "")
-                    .foregroundColor(Color.gray)
+                HStack {
+                    Text(position ?? "")
+                        .foregroundColor(Color.gray)
+                }
             }
         }
     }
