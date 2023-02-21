@@ -70,9 +70,8 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(viewModel: DetailViewModel(3696814,
-                                              media: Movie.getDummy(),
+        DetailView(viewModel: DetailViewModel(Movie.getDummy(),
                                               casts: Cast.getDummy(),
-                                              crews: Crew.getDummy()))
+                                              kind: .tv))
     }
 }
