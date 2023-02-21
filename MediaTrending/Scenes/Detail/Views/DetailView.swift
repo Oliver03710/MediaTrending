@@ -17,7 +17,34 @@ struct DetailView: View {
         GeometryReader { geometry in
             List {
                 Section() {
-                    StretchableHeaderView(imagePath: "\(EndPoints.imageUrl)/\(viewModel.media.backdropPath)")
+                    ZStack {
+                        StretchableHeaderView(imagePath: "\(EndPoints.imageUrl)/\(viewModel.media.backdropPath)")
+                        VStack {
+                            Text(viewModel.media.title)
+                                .lineLimit(1)
+                                .font(.system(size: 32, weight: .bold))
+                                .foregroundColor(.white)
+                            
+                            HStack {
+                                AsyncImage(url: URL(string: EndPoints.imageUrl + "\(viewModel.media.posterPath)")) { phase in
+                                    if let image = phase.image {
+                                        image
+                                            .resizable()
+                                            .aspectRatio(0.9, contentMode: .fit)
+                                            .frame(width: 130, height: 130, alignment: .center)
+                                            .clipped()
+                                    } else {
+                                        Image(systemName: "star.fill")
+                                            .aspectRatio(0.9, contentMode: .fit)
+                                            .frame(width: 130, height: 130, alignment: .center)
+                                    }
+                                }
+                                
+                                Spacer()
+                            }
+                        }
+                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                    }
                 }
                 .listRowInsets(EdgeInsets())
                 
