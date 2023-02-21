@@ -27,7 +27,7 @@ struct MainView: View {
                             ForEach(viewModel.tvs) { media in
                                 if let casting = viewModel.casts[media.id] {
                                     NavigationLink(destination: DetailView(viewModel: DetailViewModel(media, casts: casting, kind: .tv))) {
-                                        MediaView(media: media, casts: casting)
+                                        MediaView(media: media, casts: casting, kind: .tv, viewModel: MediaViewModel())
                                             .foregroundColor(.black)
                                     }
                                 }
@@ -38,7 +38,7 @@ struct MainView: View {
                             ForEach(viewModel.movies) { media in
                                 if let casting = viewModel.casts[media.id] {
                                     NavigationLink(destination: DetailView(viewModel: DetailViewModel(media, casts: casting, kind: .movie))) {
-                                        MediaView(media: media, casts: casting)
+                                        MediaView(media: media, casts: casting, kind: .movie, viewModel: MediaViewModel())
                                             .foregroundColor(.black)
                                     }
                                 }
