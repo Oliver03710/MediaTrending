@@ -17,6 +17,7 @@ final class MainViewModel: ObservableObject {
     @Published var movies = [Movie]()
     @Published var tvs = [TV]()
     @Published var casts = [Int: [Cast]]()
+    @Published var crews = [Crew]()
     
     private let tvUrl = EndPoints.mainUrl + "trending/" + URLs.tv.rawValue + Raws.Networking.Period.day + "api_key=" + APIKey.TMDB.rawValue + "&page=\(1)"
     private let movieUrl = EndPoints.mainUrl + "trending/" + URLs.movie.rawValue + Raws.Networking.Period.day + "api_key=" + APIKey.TMDB.rawValue + "&page=\(1)"
@@ -43,7 +44,7 @@ final class MainViewModel: ObservableObject {
                     receivedValue
                         .forEach { media in
                             self?.tvs.append(media)
-                            self?.fetchCrews(id: media.id, media: .tv)
+                            self?.fetchCasting(id: media.id, media: .tv)
                         }
                     
                 })
@@ -62,7 +63,7 @@ final class MainViewModel: ObservableObject {
                     receivedValue
                         .forEach { media in
                             self?.movies.append(media)
-                            self?.fetchCrews(id: media.id, media: .movie)
+                            self?.fetchCasting(id: media.id, media: .movie)
                         }
                     
                 })
@@ -71,10 +72,10 @@ final class MainViewModel: ObservableObject {
         
     }
     
-    func fetchCrews(id: Int, media: URLs) {
-        let crewUrl = EndPoints.mainUrl + media.rawValue + "/\(id)/credits?api_key=\(APIKey.TMDB.rawValue)&language=en-US"
+    func fetchCasting(id: Int, media: URLs) {
+        let castUrl = EndPoints.mainUrl + media.rawValue + "/\(id)/credits?api_key=\(APIKey.TMDB.rawValue)&language=en-US"
         
-        AF.request(crewUrl)
+        AF.request(castUrl)
             .publishDecodable(type: CastResponse.self)
             .compactMap { $0.value }
             .map { $0.cast }
@@ -82,7 +83,7 @@ final class MainViewModel: ObservableObject {
                 print("Networking Completed‼️")
                 
             } receiveValue: { receivedValue in
-                print("받은 값: \(receivedValue)")
+//                print("받은 값: \(receivedValue)")
                 self.casts.updateValue(receivedValue, forKey: id)
             }
             .store(in: &subscription)
