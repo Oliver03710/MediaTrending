@@ -8,7 +8,7 @@
 import Foundation
 
 struct CrewResponse: Codable {
-    let cast: [Crew]
+    let crew: [Crew]
 }
 
 struct Crew: Codable, Identifiable, Hashable {
